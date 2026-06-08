@@ -3,11 +3,38 @@ import { contactInfo } from "../data/content";
 
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${contactInfo.email}`;
 
+function appendMetaFields(formData, formType) {
+  formData.append(
+    "_subject",
+    formType === "career"
+      ? "Career Application - Prudence Property"
+      : "New Contact Inquiry - Prudence Property"
+  );
+  formData.append("_template", "table");
+  formData.append("_captcha", "false");
+}
+
+async function postFormData(formData) {
+  const response = await fetch(FORM_ENDPOINT, {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" },
+  });
+
+  const result = await response.json();
+
+  if (!response.ok || result.success === "false") {
+    throw new Error(result.message || "Failed to send message.");
+  }
+
+  return result;
+}
+
 export function useFormSubmit(formType = "contact") {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
 
-  const sendForm = async (fields, file = null) => {
+  const sendForm = async (fields) => {
     setStatus("loading");
     setError("");
 
@@ -19,32 +46,10 @@ export function useFormSubmit(formType = "contact") {
       }
     });
 
-    if (file) {
-      formData.append("attachment", file);
-    }
-
-    formData.append(
-      "_subject",
-      formType === "career"
-        ? "Career Application - Prudence Property"
-        : "New Contact Inquiry - Prudence Property"
-    );
-    formData.append("_template", "table");
-    formData.append("_captcha", "false");
+    appendMetaFields(formData, formType);
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || result.success === "false") {
-        throw new Error(result.message || "Failed to send message.");
-      }
-
+      await postFormData(formData);
       setStatus("success");
       return true;
     } catch (err) {
