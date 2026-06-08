@@ -87,6 +87,11 @@ export const homeGalleryPreview = [
   },
 ];
 
+export const companyInfo = {
+  foundedYear: 2020,
+  name: "Prudence Property",
+};
+
 export const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },

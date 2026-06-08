@@ -4,14 +4,13 @@ import {
   servicesPreview,
   contactInfo,
   socialLinks,
+  companyInfo,
 } from "../../data/content";
 import Icon from "../ui/Icon";
 import Logo from "../ui/Logo";
 import { HiPhone, HiEnvelope, HiMapPin } from "react-icons/hi2";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-primary text-slate-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -108,7 +107,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <p>&copy; {currentYear} Prudence Property. All rights reserved.</p>
+          <p>&copy; {companyInfo.foundedYear} {companyInfo.name}. All rights reserved.</p>
           <p>Property Management You Can Trust</p>
         </div>
       </div>
