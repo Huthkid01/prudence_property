@@ -1,5 +1,6 @@
 import PageMeta from "../components/ui/PageMeta";
 import SectionHeading from "../components/ui/SectionHeading";
+import OptimizedImage from "../components/ui/OptimizedImage";
 import Icon from "../components/ui/Icon";
 import {
   AnimatedSection,
@@ -9,7 +10,7 @@ import {
 import { pageMeta, coreValues } from "../data/content";
 
 const aboutImage =
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80";
+  "https://images.unsplash.com/photo-1497366216548-37526070297c";
 
 export default function About() {
   return (
@@ -41,9 +42,10 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <AnimatedSection>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <OptimizedImage
                   src={aboutImage}
                   alt="Prudence Property team at work"
+                  preset="content"
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />

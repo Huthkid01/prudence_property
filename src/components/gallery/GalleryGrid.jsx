@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { galleryImages, galleryCategories } from "../../data/content";
+import OptimizedImage from "../ui/OptimizedImage";
 import Lightbox from "./Lightbox";
 import { AnimatedSection } from "../ui/AnimatedSection";
 
@@ -59,10 +60,10 @@ export default function GalleryGrid() {
             onClick={() => openLightbox(index)}
           >
             <div className="relative overflow-hidden rounded-xl shadow-md">
-              <img
+              <OptimizedImage
                 src={image.src}
                 alt={image.title}
-                loading="lazy"
+                preset="gallery"
                 className={`w-full object-cover ${image.height} transition-transform duration-500 group-hover:scale-110`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">

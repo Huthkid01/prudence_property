@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { getOptimizedImageProps } from "../../utils/images";
 import { HiXMark, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import { useEffect } from "react";
 
@@ -19,6 +20,8 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
 
   const image = images[currentIndex];
   if (!image) return null;
+
+  const lightboxImage = getOptimizedImageProps(image.src, "lightbox");
 
   return (
     <AnimatePresence>
@@ -75,8 +78,11 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           onClick={(e) => e.stopPropagation()}
         >
           <img
-            src={image.src}
+            src={lightboxImage.src}
+            srcSet={lightboxImage.srcSet}
+            sizes={lightboxImage.sizes}
             alt={image.title}
+            decoding="async"
             className="w-full max-h-[85vh] object-contain rounded-lg"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { HiArrowLongRight } from "react-icons/hi2";
 import SectionHeading from "../ui/SectionHeading";
 import Button from "../ui/Button";
+import OptimizedImage from "../ui/OptimizedImage";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "../ui/AnimatedSection";
 import { homeGalleryPreview } from "../../data/content";
 
@@ -24,10 +25,10 @@ export default function GalleryPreview() {
               className={`${image.span} group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md`}
             >
               <Link to="/gallery" className="block h-full w-full">
-                <img
+                <OptimizedImage
                   src={image.src}
                   alt={image.title}
-                  loading="lazy"
+                  preset="preview"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />

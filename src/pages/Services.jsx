@@ -1,6 +1,7 @@
 import { HiCheckCircle } from "react-icons/hi2";
 import PageMeta from "../components/ui/PageMeta";
 import CTABanner from "../components/ui/CTABanner";
+import OptimizedImage from "../components/ui/OptimizedImage";
 import Icon from "../components/ui/Icon";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { pageMeta, servicesDetail } from "../data/content";
@@ -46,9 +47,10 @@ export default function Services() {
                 >
                   <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                     <div className="relative rounded-2xl overflow-hidden shadow-xl group">
-                      <img
+                      <OptimizedImage
                         src={service.image}
                         alt={service.title}
+                        preset="content"
                         className="w-full h-72 lg:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />

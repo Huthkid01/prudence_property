@@ -2,7 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Button from "../ui/Button";
+import OptimizedImage from "../ui/OptimizedImage";
 import { heroSlides } from "../../data/content";
+import { preloadImages } from "../../utils/images";
 
 const SLIDE_INTERVAL = 3000;
 
@@ -32,6 +34,10 @@ export default function HeroCarousel() {
     return () => clearInterval(timer);
   }, [isPaused, next]);
 
+  useEffect(() => {
+    preloadImages(heroSlides.map((s) => s.image));
+  }, []);
+
   const slide = heroSlides[current];
 
   return (
@@ -53,9 +59,11 @@ export default function HeroCarousel() {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <img
+            <OptimizedImage
               src={slide.image}
               alt={slide.alt}
+              preset="hero"
+              priority={current === 0}
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/40" />
