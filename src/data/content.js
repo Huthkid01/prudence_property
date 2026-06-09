@@ -1,3 +1,10 @@
+export const siteConfig = {
+  url: "https://prudenceproperty.com",
+  name: "Prudence Property",
+  tagline: "Property Management You Can Trust",
+  locale: "en_NG",
+};
+
 export const heroSlides = [
   {
     id: 1,
@@ -104,7 +111,7 @@ export const navLinks = [
 export const contactInfo = {
   phone: "0815 952 4123",
   whatsapp: "2348159524123",
-  email: "prudenceproperty6@gmail.com",
+  email: "info@prudenceproperty.com",
   address: "15 Ayangburen Road, Ikorodu, Lagos, Nigeria",
   mapEmbedUrl:
     "https://maps.google.com/maps?q=15+Ayangburen+Road,+Ikorodu,+Lagos,+Nigeria&t=&z=15&ie=UTF8&iwloc=&output=embed",

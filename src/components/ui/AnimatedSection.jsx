@@ -75,5 +75,3 @@ export function StaggerItem({ children, className = "" }) {
     </motion.div>
   );
 }
-
-export { fadeUp };

@@ -22,7 +22,7 @@ import {
 export default function Home() {
   return (
     <>
-      <PageMeta title={pageMeta.home.title} description={pageMeta.home.description} />
+      <PageMeta title={pageMeta.home.title} description={pageMeta.home.description} path="/" />
 
       <HeroCarousel />
 

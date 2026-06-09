@@ -39,6 +39,7 @@ export default function TestimonialsSlider() {
   }, []);
 
   const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const activeIndex = Math.min(current, maxIndex);
 
   const next = useCallback(() => {
     setCurrent((c) => (c >= maxIndex ? 0 : c + 1));
@@ -54,10 +55,6 @@ export default function TestimonialsSlider() {
     return () => clearInterval(timer);
   }, [isPaused, next]);
 
-  useEffect(() => {
-    if (current > maxIndex) setCurrent(0);
-  }, [current, maxIndex]);
-
   const slideWidth = 100 / visibleCount;
 
   return (
@@ -71,7 +68,7 @@ export default function TestimonialsSlider() {
       <div className="overflow-hidden px-1">
         <motion.div
           className="flex"
-          animate={{ x: `-${current * slideWidth}%` }}
+          animate={{ x: `-${activeIndex * slideWidth}%` }}
           transition={{ duration: 0.65, ease: "easeInOut" }}
         >
           {testimonials.map((testimonial, index) => (
@@ -104,12 +101,12 @@ export default function TestimonialsSlider() {
               type="button"
               onClick={() => setCurrent(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === current
+                index === activeIndex
                   ? "w-6 sm:w-8 bg-accent"
                   : "w-2 bg-white/30 hover:bg-white/50"
               }`}
               aria-label={`Go to testimonial slide ${index + 1}`}
-              aria-current={index === current ? "true" : undefined}
+              aria-current={index === activeIndex ? "true" : undefined}
             />
           ))}
         </div>

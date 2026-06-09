@@ -15,6 +15,7 @@ export default function Careers() {
       <PageMeta
         title={pageMeta.careers.title}
         description={pageMeta.careers.description}
+        path="/careers"
       />
 
       {/* Page Hero */}

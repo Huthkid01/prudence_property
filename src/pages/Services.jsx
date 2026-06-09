@@ -12,6 +12,7 @@ export default function Services() {
       <PageMeta
         title={pageMeta.services.title}
         description={pageMeta.services.description}
+        path="/services"
       />
 
       {/* Page Hero */}

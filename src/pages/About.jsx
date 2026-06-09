@@ -15,7 +15,7 @@ const aboutImage =
 export default function About() {
   return (
     <>
-      <PageMeta title={pageMeta.about.title} description={pageMeta.about.description} />
+      <PageMeta title={pageMeta.about.title} description={pageMeta.about.description} path="/about" />
 
       {/* Page Hero */}
       <section className="relative bg-primary pt-32 pb-20 lg:pt-40 lg:pb-28">

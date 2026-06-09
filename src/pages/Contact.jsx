@@ -11,6 +11,7 @@ export default function Contact() {
       <PageMeta
         title={pageMeta.contact.title}
         description={pageMeta.contact.description}
+        path="/contact"
       />
 
       {/* Page Hero */}

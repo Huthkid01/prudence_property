@@ -42,10 +42,10 @@ npm run preview
 
 ## FormSubmit Setup
 
-Contact and career forms send submissions to **prudenceproperty6@gmail.com** via [FormSubmit](https://formsubmit.co/).
+Contact and career forms send submissions to **info@prudenceproperty.com** via [FormSubmit](https://formsubmit.co/).
 
 1. Submit a test message through the Contact page (after deploying or on localhost).
-2. Check **prudenceproperty6@gmail.com** for a FormSubmit activation email and click the confirmation link.
+2. Check **info@prudenceproperty.com** for a FormSubmit activation email and click the confirmation link.
 3. After activation, all form submissions will arrive in that inbox.
 
 Career applications support resume file attachments (PDF, DOC, DOCX).

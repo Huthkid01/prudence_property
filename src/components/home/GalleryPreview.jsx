@@ -19,7 +19,7 @@ export default function GalleryPreview() {
         </AnimatedSection>
 
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-[140px] sm:auto-rows-[180px] lg:auto-rows-[200px]">
-          {homeGalleryPreview.map((image, index) => (
+          {homeGalleryPreview.map((image) => (
             <StaggerItem
               key={image.id}
               className={`${image.span} group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md`}

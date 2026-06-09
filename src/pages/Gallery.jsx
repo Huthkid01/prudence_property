@@ -11,6 +11,7 @@ export default function Gallery() {
       <PageMeta
         title={pageMeta.gallery.title}
         description={pageMeta.gallery.description}
+        path="/gallery"
       />
 
       {/* Page Hero */}

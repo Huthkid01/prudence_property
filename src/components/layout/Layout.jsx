@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "../ui/WhatsAppButton";
+import StructuredData from "../ui/StructuredData";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <StructuredData />
       <Navbar />
       <main className="flex-1">
         <Outlet />
