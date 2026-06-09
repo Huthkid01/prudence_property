@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
 import { FormMessage, FormField, inputClasses } from "./FormFields";
-import { careerPositions, contactInfo } from "../../data/content";
+import { careerPositions } from "../../data/content";
+import { getFormSubmitAction } from "../../config/formSubmit";
 
-const FORM_ACTION = `https://formsubmit.co/${contactInfo.email}`;
+const FORM_ACTION = getFormSubmitAction();
+const FORM_PAGE_URL = "https://prudenceproperty.com/careers";
 
 export default function CareerForm() {
   const formRef = useRef(null);
@@ -92,6 +94,7 @@ export default function CareerForm() {
         />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_url" value={FORM_PAGE_URL} />
 
         <FormMessage
           status={status}

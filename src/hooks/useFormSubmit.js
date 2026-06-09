@@ -1,18 +1,10 @@
 import { useState } from "react";
-import { contactInfo } from "../data/content";
+import {
+  appendFormSubmitMeta,
+  getFormSubmitAction,
+} from "../config/formSubmit";
 
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${contactInfo.email}`;
-
-function appendMetaFields(formData, formType) {
-  formData.append(
-    "_subject",
-    formType === "career"
-      ? "Career Application - Prudence Property"
-      : "New Contact Inquiry - Prudence Property"
-  );
-  formData.append("_template", "table");
-  formData.append("_captcha", "false");
-}
+const FORM_ENDPOINT = getFormSubmitAction({ ajax: true });
 
 async function postFormData(formData) {
   const response = await fetch(FORM_ENDPOINT, {
@@ -46,7 +38,10 @@ export function useFormSubmit(formType = "contact") {
       }
     });
 
-    appendMetaFields(formData, formType);
+    appendFormSubmitMeta(formData, {
+      formType,
+      pageUrl: window.location.href,
+    });
 
     try {
       await postFormData(formData);

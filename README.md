@@ -44,9 +44,12 @@ npm run preview
 
 Contact and career forms send submissions to **info@prudenceproperty.com** via [FormSubmit](https://formsubmit.co/).
 
-1. Submit a test message through the Contact page (after deploying or on localhost).
-2. Check **info@prudenceproperty.com** for a FormSubmit activation email and click the confirmation link.
-3. After activation, all form submissions will arrive in that inbox.
+1. Deploy the latest site, then submit a test message on the **Contact** page.
+2. Submit a test application on the **Careers** page (with a resume attached).
+3. Check **info@prudenceproperty.com** (and spam/junk) for FormSubmit activation emails — you need **one activation per form page**.
+4. Click each activation link. After that, submissions go to **info@prudenceproperty.com** only.
+
+If submissions still arrive at an old Gmail address, deactivate the old form at [formsubmit.co/deactivate](https://formsubmit.co/deactivate) using **prudenceproperty6@gmail.com**.
 
 Career applications support resume file attachments (PDF, DOC, DOCX).
 
